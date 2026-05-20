@@ -612,36 +612,46 @@ footer p{
 
 </body>
 </html>
-/* =========================
-   PROFESSIONAL BACKGROUND THEME
-   Replace your OLD body CSS
-========================= */
 
-body{
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cyber.com</title>
+
+<style>
+
+*{
     margin:0;
     padding:0;
-    overflow-x:hidden;
-    color:#f8fafc;
-    line-height:1.6;
+    box-sizing:border-box;
     font-family:Arial, Helvetica, sans-serif;
+}
 
-    /* MAIN PROFESSIONAL BACKGROUND */
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    color:white;
+
     background:
-    radial-gradient(circle at top right, rgba(56,189,248,0.18), transparent 22%),
-    radial-gradient(circle at bottom left, rgba(59,130,246,0.15), transparent 28%),
-    linear-gradient(135deg,#020617 0%, #071126 30%, #0f172a 60%, #111827 100%);
+    radial-gradient(circle at top right, rgba(0,191,255,0.18), transparent 25%),
+    radial-gradient(circle at bottom left, rgba(59,130,246,0.15), transparent 30%),
+    linear-gradient(135deg,#020617,#071126,#0f172a,#111827);
 
     position:relative;
 }
 
-
-/* ANIMATED STARS EFFECT */
+/* STARS EFFECT */
 
 body::before{
     content:'';
-    position:fixed;
-    top:0;
-    left:0;
+    position:absolute;
     width:100%;
     height:100%;
 
@@ -662,38 +672,31 @@ body::before{
 
     opacity:0.18;
 
-    pointer-events:none;
-    z-index:-2;
-
-    animation:starsMove 60s linear infinite;
+    animation:starsMove 80s linear infinite;
 }
 
-
-/* GLOW EFFECT */
+/* GLOW */
 
 body::after{
     content:'';
-    position:fixed;
+    position:absolute;
 
     width:700px;
     height:700px;
 
-    top:-200px;
+    top:-250px;
     right:-200px;
 
     background:radial-gradient(circle,
-    rgba(56,189,248,0.18),
+    rgba(56,189,248,0.22),
     transparent 65%);
 
     filter:blur(100px);
 
-    z-index:-1;
-
     animation:glowMove 8s ease-in-out infinite alternate;
 }
 
-
-/* STAR ANIMATION */
+/* ANIMATIONS */
 
 @keyframes starsMove{
 
@@ -702,12 +705,9 @@ body::after{
     }
 
     to{
-        transform:translateY(-120px);
+        transform:translateY(-150px);
     }
 }
-
-
-/* GLOW ANIMATION */
 
 @keyframes glowMove{
 
@@ -716,53 +716,281 @@ body::after{
     }
 
     to{
-        transform:scale(1.15);
+        transform:scale(1.12);
     }
 }
 
+/* HEADER */
 
+header{
+    width:100%;
+    padding:25px 70px;
 
-/* OPTIONAL PROFESSIONAL GLASS EFFECT */
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-.college-card,
-.cert-card,
-.student-box,
-table td,
-table th{
+    position:relative;
+    z-index:10;
 
-    background:rgba(15,23,42,0.72);
+    background:rgba(2,6,23,0.45);
 
     backdrop-filter:blur(12px);
 
-    border:1px solid rgba(56,189,248,0.12);
-
-    box-shadow:0 8px 30px rgba(0,0,0,0.25);
+    border-bottom:1px solid rgba(56,189,248,0.12);
 }
 
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#38bdf8;
+    letter-spacing:1px;
+}
 
-
-/* OPTIONAL HERO BACKGROUND */
-
-.hero{
-
-    background:
-    linear-gradient(rgba(2,6,23,0.86), rgba(15,23,42,0.94)),
-    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');
-
-    background-size:cover;
-    background-position:center;
-
+nav a{
+    text-decoration:none;
+    color:white;
+    margin-left:30px;
+    font-size:15px;
+    transition:0.3s;
     position:relative;
 }
 
-
-/* PROFESSIONAL HEADER */
-
-header{
-
-    background:rgba(2,6,23,0.82);
-
-    backdrop-filter:blur(14px);
-
-    border-bottom:1px solid rgba(56,189,248,0.12);
+nav a:hover{
+    color:#38bdf8;
 }
+
+nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-6px;
+
+    width:0%;
+    height:2px;
+
+    background:#38bdf8;
+
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* HERO */
+
+.hero{
+    width:100%;
+    min-height:90vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:40px;
+
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:85px;
+    color:#38bdf8;
+
+    text-shadow:
+    0 0 10px rgba(56,189,248,0.5),
+    0 0 30px rgba(56,189,248,0.3);
+
+    margin-bottom:25px;
+}
+
+.hero p{
+    max-width:850px;
+
+    color:#cbd5e1;
+
+    font-size:20px;
+    line-height:1.8;
+
+    margin-bottom:40px;
+}
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.btn{
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:0.35s;
+
+    border:1px solid rgba(56,189,248,0.3);
+
+    backdrop-filter:blur(10px);
+}
+
+.primary-btn{
+    background:#38bdf8;
+    color:#020617;
+}
+
+.primary-btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 30px rgba(56,189,248,0.35);
+}
+
+.secondary-btn{
+    background:rgba(15,23,42,0.55);
+    color:white;
+}
+
+.secondary-btn:hover{
+    background:#38bdf8;
+    color:#020617;
+
+    transform:translateY(-5px);
+}
+
+/* CYBER BOX */
+
+.cyber-box{
+    margin-top:60px;
+
+    width:90%;
+    max-width:950px;
+
+    background:rgba(15,23,42,0.58);
+
+    border:1px solid rgba(56,189,248,0.15);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,0.25);
+}
+
+.cyber-box h2{
+    color:#7dd3fc;
+    margin-bottom:18px;
+    font-size:30px;
+}
+
+.cyber-box p{
+    color:#cbd5e1;
+    font-size:17px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    header{
+        padding:20px;
+        flex-direction:column;
+    }
+
+    nav{
+        margin-top:15px;
+    }
+
+    nav a{
+        margin:10px;
+        display:inline-block;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .cyber-box{
+        padding:25px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        Cyber.com
+    </div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Courses</a>
+        <a href="#">Labs</a>
+        <a href="#">Certifications</a>
+        <a href="#">Contact</a>
+    </nav>
+
+</header>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <h1>Cyber.com</h1>
+
+    <p>
+        Explore the future of cybersecurity with professional learning,
+        ethical hacking labs, penetration testing resources,
+        AI security research, and advanced cyber education.
+    </p>
+
+    <div class="buttons">
+
+        <a href="#" class="btn primary-btn">
+            Get Started
+        </a>
+
+        <a href="#" class="btn secondary-btn">
+            Explore Courses
+        </a>
+
+    </div>
+
+    <div class="cyber-box">
+
+        <h2>
+            Secure. Learn. Defend.
+        </h2>
+
+        <p>
+            Cyber.com is built for future cybersecurity professionals,
+            ethical hackers, SOC analysts, digital forensics experts,
+            and security researchers who want to master the cyber world.
+        </p>
+
+    </div>
+
+</section>
+
+</body>
+</html>
